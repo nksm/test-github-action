@@ -40,5 +40,6 @@ jobs:
         git config --local user.name "GitHub Action"
     - name: Commit files
       run: |
+        git add .
         git commit -m "build" -a
         git push origin master
