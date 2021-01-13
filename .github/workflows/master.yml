@@ -44,4 +44,4 @@ jobs:
       run: |
         git commit -m "build" -a
         git pull
-        git push origin master
+        git push origin development
