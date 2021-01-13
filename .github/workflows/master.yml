@@ -26,8 +26,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    # - name: Change working directory
-      # working-directory: ./test
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -43,5 +41,4 @@ jobs:
     - name: Commit files
       run: |
         git commit -m "build" -a
-        git pull
-        git push origin master
+        git push origin development
