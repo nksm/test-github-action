@@ -5,7 +5,7 @@ name: Run Lint
 
 on:
   pull_request:
-    branches: [ master, development ]
+    types: [opened, synchronize]
 
 
 defaults:
@@ -30,14 +30,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install package
       run: npm ci
-    - name: eslint review
-      uses: reviewdog/action-eslint@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review
-        eslint_flags: './**/*.{vue,ts,js}'
-    - name: Run eslint
-      run: npm run lint
     - name: stylelint review
       uses: reviewdog/action-stylelint@v1
       with:
@@ -46,3 +38,11 @@ jobs:
         stylelint_input: '**/*.{vue,css,scss}'
     - name: Run stylelint
       run: npm run lint:css
+    - name: eslint review
+      uses: reviewdog/action-eslint@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        reporter: github-pr-review
+        eslint_flags: './**/*.{vue,ts,js}'
+    - name: Run eslint
+      run: npm run lint
