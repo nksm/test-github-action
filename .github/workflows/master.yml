@@ -9,6 +9,11 @@ on:
   pull_request:
     branches: [ master ]
 
+
+defaults:
+  run:
+    working-directory: ./test
+
 jobs:
   build:
 
@@ -21,7 +26,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Change working directory
+    # - name: Change working directory
       # working-directory: ./test
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
