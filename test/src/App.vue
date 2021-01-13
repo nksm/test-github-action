@@ -29,5 +29,6 @@ export default {
   margin-top: 60px;
   display: block;
   padding: 10px;
+  text-align: left;
 }
 </style>
