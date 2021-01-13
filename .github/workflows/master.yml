@@ -43,5 +43,5 @@ jobs:
     - name: Commit files
       run: |
         git commit -m "build" -a
-        git pull
+#        git pull
         git push origin development
