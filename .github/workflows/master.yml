@@ -36,6 +36,10 @@ jobs:
       run: npm ci
     - name: Build Development
       run: npm run build --if-present
+    - name: git settings
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     - name: Commit files
       run: |
         git commit -m "build" -a
