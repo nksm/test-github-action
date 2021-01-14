@@ -13,7 +13,7 @@ defaults:
     working-directory: ./test
 
 jobs:
-  reviewdoc_eslint:
+  eslint:
     name: reviewdoc eslint
     runs-on: ubuntu-latest
     steps:
@@ -26,7 +26,7 @@ jobs:
           reporter: github-pr-review
           fail_on_error: true
 
-  reviewdoc_stylelint:
+  stylelint:
     name: reviewdoc stylelint
     runs-on: ubuntu-latest
     steps:
