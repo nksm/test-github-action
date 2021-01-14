@@ -27,7 +27,7 @@ jobs:
       - name: Install packages
         run: npm ci
       - name: Check eslint
-        run: npm run lint
+        run: npm run lint:eslint
 
   stylelint:
     name: stylelint
