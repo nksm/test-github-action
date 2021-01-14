@@ -18,21 +18,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: eslint review
+      - name: Review eslint
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint_flags: '**/*.{vue,ts,js}'
+      - name: Install packages
+        run: npm ci
+      - name: Check Eslint
+        run: npm run lint
 
   stylelint:
     name: Check Stylelint Error
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: stylelint review
         uses: reviewdog/action-stylelint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          packages: 'stylelint-prettier stylelint-scss stylelint-order'
-          stylelint_config: ./stylelint.config.js
           stylelint_input: '**/*.{css,scss,vue}'
+      - name: Install packages
+        run: npm ci
+      - name: Check Stylelint
+        run: npm run lint:style
