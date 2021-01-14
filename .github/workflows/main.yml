@@ -22,12 +22,7 @@ jobs:
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          eslint_flags: '**/*.{vue,ts,js}'
-          workdir: ./test
-      - name: Install packages
-        run: npm ci
-      - name: Check Eslint
-        run: npm run lint
+          eslint_flags: './test/**/*.{vue,ts,js}'
 
   stylelint:
     name: Check Stylelint Error
