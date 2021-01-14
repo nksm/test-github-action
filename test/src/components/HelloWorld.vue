@@ -40,8 +40,7 @@ export default {
     this.test();
   },
   methods: {
-    test() {
-    },
+    test() {},
   },
 }
 </script>

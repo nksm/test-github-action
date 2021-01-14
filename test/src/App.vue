@@ -21,14 +21,13 @@ export default {
 
 <style lang="scss" scoped>
 #app {
-  text-align: left;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   padding: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c;
-  margin-top: 60px;
   display: block;
+  margin-top: 60px;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>
