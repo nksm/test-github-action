@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: reviewdog
+name: Check Lint
 
 on:
   pull_request:
@@ -13,8 +13,8 @@ defaults:
     working-directory: ./test
 
 jobs:
-  eslint:
-    name: eslint
+  reviewdocEslint:
+    name: reviewdoc eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -24,13 +24,19 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint_flags: './test/**/*.{vue,ts,js}'
           reporter: github-pr-review
+
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Install packages
         run: npm ci
       - name: Check eslint
         run: npm run lint:eslint
 
-  stylelint:
-    name: stylelint
+  reviewdocStylelint:
+    name: reviewdoc stylelint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -42,3 +48,13 @@ jobs:
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           workDir: ./test
           reporter: github-pr-review
+
+  stylelint:
+    name: stylelint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Check stylelint
+        run: npm run lint:style
