@@ -23,7 +23,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
-          eslint_flags: './**/*.{vue,ts,js}'
+          eslint_flags: './src/**/*.{vue,ts,js}'
 
   stylelint:
     name: Check Stylelint Error
@@ -37,4 +37,4 @@ jobs:
           reporter: github-pr-check
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           stylelint_config: ./stylelint.config.js
-          stylelint_input: '**/*.{css,scss,vue}'
+          stylelint_input: './src/**/*.{css,scss,vue}'
