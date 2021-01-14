@@ -93,7 +93,11 @@ export default {
     msg: String
   },
   created() {
-    console.log('saaa');
+  },
+  methods: {
+    test() {
+      console.log('aaasaaa')
+    }
   },
 };
 </script>
