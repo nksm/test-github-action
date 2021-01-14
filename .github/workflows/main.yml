@@ -24,6 +24,10 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint_flags: './test/**/*.{vue,ts,js}'
           reporter: github-pr-review
+      - name: Install packages
+        run: npm ci
+      - name: Check eslint
+        run: npm run lint
 
   stylelint:
     name: stylelint
@@ -38,3 +42,7 @@ jobs:
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           workDir: ./test
           reporter: github-pr-review
+      - name: Install packages
+        run: npm ci
+      - name: Check stylelint
+        run: npm run lint:style
