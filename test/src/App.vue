@@ -23,12 +23,12 @@ export default {
 #app {
   text-align: left;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  padding: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
   display: block;
-  padding: 10px;
 }
 </style>
