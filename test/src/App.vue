@@ -18,20 +18,22 @@ export default {
 
   },
   methods: {
-    test(){}
+    test(){
+      console.log('test')
+    }
   },
 }
 </script>
 
 <style lang="scss" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  display: block;
   padding: 10px;
+  margin-top: 60px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c;
+  text-align: cen;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: block;
-  margin-top: 60px;
-  text-align: cen;
-  color: #2c;
 }
 </style>
