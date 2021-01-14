@@ -14,7 +14,7 @@ defaults:
 
 jobs:
   eslint:
-    name: Check Eslint Error
+    name: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,18 +23,18 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           eslint_flags: './test/**/*.{vue,ts,js}'
-          reporter: github-pr-check
+          reporter: github-pr-review
 
   stylelint:
-    name: Check Stylelint Error
+    name: stylelint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: stylelint review
+      - name: Review stylelint
         uses: reviewdog/action-stylelint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           stylelint_input: '**/*.{css,scss,vue}'
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           workDir: ./test
-          reporter: github-pr-check
+          reporter: github-pr-review
