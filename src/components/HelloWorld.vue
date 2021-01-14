@@ -91,7 +91,14 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
-  }
+  },
+  created() {
+  },
+  methods: {
+    test() {
+      console.log('aaasaaa')
+    }
+  },
 };
 </script>
 
