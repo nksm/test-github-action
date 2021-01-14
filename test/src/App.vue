@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 #app {
+  text-align: left;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,6 +30,5 @@ export default {
   margin-top: 60px;
   display: block;
   padding: 10px;
-  text-align: left;
 }
 </style>
