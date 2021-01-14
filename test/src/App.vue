@@ -31,8 +31,8 @@ export default {
   padding: 10px;
   margin-top: 60px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c;
-  text-align: cen;
+  color: #2cc;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
