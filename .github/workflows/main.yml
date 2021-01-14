@@ -1,0 +1,48 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Run Lint
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+
+defaults:
+  run:
+    working-directory: ./test
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install package
+      run: npm ci
+    - name: stylelint review
+      uses: reviewdog/action-stylelint@v1
+      with:
+        github_token: ${{ secrets.github_token }}
+        reporter: github-pr-review
+        stylelint_input: '**/*.{vue,css,scss}'
+    - name: Run stylelint
+      run: npm run lint:css
+    - name: eslint review
+      uses: reviewdog/action-eslint@v1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        reporter: github-pr-review
+        eslint_flags: './**/*.{vue,ts,js}'
+    - name: Run eslint
+      run: npm run lint
