@@ -37,12 +37,11 @@ export default {
     msg: String
   },
   created() {
-    this.test()
+    this.test();
   },
   methods: {
-    test(){
-      console.log('test');
-    }
+    test() {
+    },
   },
 }
 </script>
