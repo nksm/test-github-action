@@ -29,7 +29,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install package
       run: npm ci
-    - continue-on-error: true
     - name: stylelint review
       uses: reviewdog/action-stylelint@v1
       with:
