@@ -22,7 +22,6 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - continue-on-error: true
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -30,6 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install package
       run: npm ci
+    - continue-on-error: true
     - name: stylelint review
       uses: reviewdog/action-stylelint@v1
       with:
