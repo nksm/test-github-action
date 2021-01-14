@@ -1,12 +1,10 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Build Development
 
 on:
   push:
-    branches: [ development ]
-  pull_request:
     branches: [ development ]
 
 jobs:
@@ -25,14 +23,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Change directory
-      working-directory: ./test/
-    - name: Install package
-      run: npm ci
     - name: Build Development
+      working-directory: ./test/
+      run: npm ci
       run: npm run build --if-present
-    - name: Change directory
-      working-directory: ./
     - name: git settings
       run: |
         git config --local user.email "action@github.com"
