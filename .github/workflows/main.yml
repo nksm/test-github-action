@@ -36,3 +36,4 @@ jobs:
           stylelint_input: '**/*.{css,scss,vue}'
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           workDir: ./test
+          reporter: github-pr-review
