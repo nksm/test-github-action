@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint:css": "stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\""
+    "lint:style": "stylelint \"**/*.vue\" \"**/*.css\" \"**/*.scss\""
   },
   "dependencies": {
     "core-js": "^3.6.5",
