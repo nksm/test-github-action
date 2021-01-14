@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install package
-        run: npm ci
       - name: eslint review
         uses: reviewdog/action-eslint@v1
         with:
@@ -35,8 +33,8 @@ jobs:
       - name: stylelint review
         uses: reviewdog/action-stylelint@v1
         with:
-          github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
-          stylelint_config: ./test/stylelint.config.js
+          stylelint_config: ./stylelint.config.js
           stylelint_input: '**/*.{css,scss,vue}'
