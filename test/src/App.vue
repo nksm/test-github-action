@@ -15,6 +15,10 @@ export default {
   },
   created() {
     console.log('test');
+
+  },
+  methods: {
+    test(){}
   },
 }
 </script>
@@ -28,6 +32,6 @@ export default {
   display: block;
   margin-top: 60px;
   text-align: center;
-  color: #2c3e50;
+  color: #2c;
 }
 </style>
