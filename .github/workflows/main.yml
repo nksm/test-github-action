@@ -13,7 +13,7 @@ defaults:
     working-directory: ./test
 
 jobs:
-  build:
+  stylelint:
     runs-on: ubuntu-latest
 
     strategy:
@@ -35,13 +35,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         reporter: github-pr-review
         stylelint_input: '**/*.{vue,css,scss}'
-    - name: Run stylelint
-      run: npm run lint:css
-    - name: eslint review
-      uses: reviewdog/action-eslint@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review
-        eslint_flags: './**/*.{vue,ts,js}'
-    - name: Run eslint
-      run: npm run lint
