@@ -1,7 +1,7 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Run Lint
+name: Run Stylelint
 
 on:
   pull_request:
@@ -37,11 +37,3 @@ jobs:
         stylelint_input: '**/*.{vue,css,scss}'
     - name: Run stylelint
       run: npm run lint:css
-    - name: eslint review
-      uses: reviewdog/action-eslint@v1
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        reporter: github-pr-review
-        eslint_flags: './**/*.{vue,ts,js}'
-    - name: Run eslint
-      run: npm run lint
