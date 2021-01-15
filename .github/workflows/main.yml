@@ -36,7 +36,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           stylelint_input: '**/*.{css,scss,vue}'
-          packages: 'stylelint-prettier stylelint-scss stylelint-order'
           workDir: ./test
+          packages: 'stylelint-prettier stylelint-scss stylelint-order'
           reporter: github-pr-review
           fail_on_error: true
