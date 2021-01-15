@@ -14,11 +14,11 @@ defaults:
 
 jobs:
   eslint:
-    name: reviewdoc eslint
+    name: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Review eslint
+      - name: reviewdog eslint
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -27,11 +27,11 @@ jobs:
           fail_on_error: true
 
   stylelint:
-    name: reviewdoc stylelint
+    name: stylelint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Review stylelint
+      - name: reviewdog stylelint
         uses: reviewdog/action-stylelint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
