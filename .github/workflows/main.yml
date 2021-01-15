@@ -13,48 +13,31 @@ defaults:
     working-directory: ./test
 
 jobs:
-  reviewdoc_eslint:
-    name: reviewdoc eslint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Review eslint
-        uses: reviewdog/action-eslint@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          eslint_flags: './test/**/*.{vue,ts,js}'
-          reporter: github-pr-review
-
   eslint:
     name: eslint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install packages
-        run: npm ci
-      - name: Check eslint
-        run: npm run lint:eslint
-
-  reviewdoc_stylelint:
-    name: reviewdoc stylelint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Review stylelint
-        uses: reviewdog/action-stylelint@v1
+      - name: reviewdog eslint
+        uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          stylelint_input: '**/*.{css,scss,vue}'
-          packages: 'stylelint-prettier stylelint-scss stylelint-order'
-          workDir: ./test
+          eslint_flags: '**/*.{vue,ts,js}'
+          workdir: ./test
           reporter: github-pr-review
+          fail_on_error: true
 
   stylelint:
     name: stylelint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install packages
-        run: npm ci
-      - name: Check stylelint
-        run: npm run lint:style
+      - name: reviewdog stylelint
+        uses: reviewdog/action-stylelint@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workDir: ./test
+          stylelint_input: '**/*.{css,scss,vue}'
+          packages: 'stylelint-prettier stylelint-scss stylelint-order'
+          reporter: github-pr-review
+          fail_on_error: true
