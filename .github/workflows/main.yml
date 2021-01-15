@@ -22,7 +22,8 @@ jobs:
         uses: reviewdog/action-eslint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          eslint_flags: './test/**/*.{vue,ts,js}'
+          eslint_flags: '**/*.{vue,ts,js}'
+          workdir: ./test
           reporter: github-pr-review
           fail_on_error: true
 
@@ -35,8 +36,8 @@ jobs:
         uses: reviewdog/action-stylelint@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          stylelint_input: '**/*.{css,scss,vue}'
           workDir: ./test
+          stylelint_input: '**/*.{css,scss,vue}'
           packages: 'stylelint-prettier stylelint-scss stylelint-order'
           reporter: github-pr-review
           fail_on_error: true
