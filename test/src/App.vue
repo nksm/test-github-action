@@ -26,13 +26,13 @@ export default {
 
 <style lang="scss" scoped>
 #app {
+  display: block;
   padding: 10px;
   margin-top: 60px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  color: #2c;
+  color: #2cc;
   text-align: center;
   -webkit-font-smoothing: antialiased;
-  display: block;
   -moz-osx-font-smoothing: grayscale;
 }
 </style>
