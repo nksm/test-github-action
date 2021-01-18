@@ -45,4 +45,3 @@ jobs:
         git add .
         git commit -m "build" -a
         git push origin development
-      if: env.GIT_DIFF
