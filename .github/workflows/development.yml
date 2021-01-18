@@ -36,13 +36,13 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-    - name: Check files
-      working-directory: ./test/
+    - name: Check diff
       run: |
-        cd htdocs
-        ls
+        echo ${{ env.GIT_DIFF }}
+        echo ${{ env.GIT_DIFF.count }}
     - name: Commit files
       run: |
         git add .
         git commit -m "build" -a
         git push origin development
+      if: env.GIT_DIFF
