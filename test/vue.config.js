@@ -3,7 +3,7 @@ const plugins = require('./config/plugins');
 
 module.exports = {
   lintOnSave: false,
-  outputDir: "./htdocs_before_deploy",
+  outputDir: "../htdocs_before_deploy",
   filenameHashing: false,
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
 
