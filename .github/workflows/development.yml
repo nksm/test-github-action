@@ -22,7 +22,7 @@ jobs:
     - uses: technote-space/get-diff-action@v4
       with:
         PATTERNS: |
-          ./htdocs/**/*
+          htdocs/**/*
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -42,6 +42,7 @@ jobs:
         echo ${{ env.GIT_DIFF.count }}
     - name: Commit files
       run: |
+        git diff --dirstat=files
         git add .
         git commit -m "build" -a
         git push origin development
